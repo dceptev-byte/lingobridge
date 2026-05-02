@@ -1,0 +1,174 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider  = "postgresql"
+  url       = env("DATABASE_URL")
+  directUrl = env("DIRECT_URL")
+}
+
+// ─── USERS ───────────────────────────────────────────
+model User {
+  id                String    @id @default(uuid())
+  email             String    @unique
+  displayName       String?
+  avatarUrl         String?
+  nativeLang        Lang      @default(EN)
+  targetLang        Lang
+  level             Level     @default(BEGINNER)
+  totalXp           Int       @default(0)
+  gems              Int       @default(0)
+  streakCurrent     Int       @default(0)
+  streakLongest     Int       @default(0)
+  streakLastDate    DateTime?
+  streakFreezeCount Int       @default(0)
+  isPremium         Boolean   @default(false)
+  lsCustomerId      String?   @unique
+  lsSubscriptionId  String?   @unique
+  createdAt         DateTime  @default(now())
+  updatedAt         DateTime  @updatedAt
+
+  progress         LessonProgress[]
+  flashcardReviews FlashcardReview[]
+  gemTransactions  GemTransaction[]
+  subscription     Subscription?
+  weeklyXp         WeeklyXp[]
+
+  @@map("users")
+}
+
+enum Lang  { VI HI EN }
+enum Level { BEGINNER ELEMENTARY INTERMEDIATE ADVANCED }
+
+// ─── LESSONS ─────────────────────────────────────────
+model Unit {
+  id        String   @id @default(uuid())
+  slug      String   @unique
+  order     Int
+  langPair  String
+  titleKey  String
+  isPremium Boolean  @default(false)
+  lessons   Lesson[]
+
+  @@map("units")
+}
+
+model Lesson {
+  id       String   @id @default(uuid())
+  slug     String   @unique
+  order    Int
+  titleKey String
+  unitId   String
+  xpReward Int      @default(15)
+  unit     Unit     @relation(fields: [unitId], references: [id])
+  progress LessonProgress[]
+  exercises Exercise[]
+
+  @@map("lessons")
+}
+
+model Exercise {
+  id       String       @id @default(uuid())
+  lessonId String
+  order    Int
+  type     ExerciseType
+  data     Json
+  lesson   Lesson       @relation(fields: [lessonId], references: [id])
+
+  @@map("exercises")
+}
+
+enum ExerciseType { MC ASSEMBLE SPEAK FLASHCARD }
+
+// ─── PROGRESS ────────────────────────────────────────
+model LessonProgress {
+  id          String    @id @default(uuid())
+  userId      String
+  lessonId    String
+  completed   Boolean   @default(false)
+  accuracy    Float?
+  xpEarned    Int       @default(0)
+  completedAt DateTime?
+  user        User      @relation(fields: [userId], references: [id])
+  lesson      Lesson    @relation(fields: [lessonId], references: [id])
+
+  @@unique([userId, lessonId])
+  @@map("lesson_progress")
+}
+
+// ─── FLASHCARDS ──────────────────────────────────────
+model FlashcardReview {
+  id          String    @id @default(uuid())
+  userId      String
+  cardId      String
+  interval    Int       @default(1)
+  easeFactor  Float     @default(2.5)
+  repetitions Int       @default(0)
+  nextReview  DateTime  @default(now())
+  lastReview  DateTime?
+  user        User      @relation(fields: [userId], references: [id])
+
+  @@unique([userId, cardId])
+  @@map("flashcard_reviews")
+}
+
+// ─── GEMS ────────────────────────────────────────────
+model GemTransaction {
+  id        String    @id @default(uuid())
+  userId    String
+  amount    Int
+  reason    GemReason
+  createdAt DateTime  @default(now())
+  user      User      @relation(fields: [userId], references: [id])
+
+  @@map("gem_transactions")
+}
+
+enum GemReason {
+  LESSON_COMPLETE
+  STREAK_MILESTONE
+  PURCHASE
+  STREAK_FREEZE_USED
+  XP_BOOST_USED
+  SKIP_LESSON_USED
+  BONUS_DECK_UNLOCKED
+}
+
+// ─── SUBSCRIPTIONS ───────────────────────────────────
+model Subscription {
+  id                 String             @id @default(uuid())
+  userId             String             @unique
+  lsSubscriptionId   String             @unique
+  lsVariantId        String
+  lsCustomerId       String
+  status             SubscriptionStatus
+  currentPeriodStart DateTime
+  currentPeriodEnd   DateTime
+  cancelAtPeriodEnd  Boolean            @default(false)
+  createdAt          DateTime           @default(now())
+  updatedAt          DateTime           @updatedAt
+  user               User               @relation(fields: [userId], references: [id])
+
+  @@map("subscriptions")
+}
+
+enum SubscriptionStatus {
+  ACTIVE
+  CANCELED
+  PAST_DUE
+  INCOMPLETE
+  TRIALING
+}
+
+// ─── LEADERBOARD ─────────────────────────────────────
+model WeeklyXp {
+  id        String   @id @default(uuid())
+  userId    String
+  weekStart DateTime
+  xp        Int      @default(0)
+  user      User     @relation(fields: [userId], references: [id])
+
+  @@unique([userId, weekStart])
+  @@map("weekly_xp")
+}
