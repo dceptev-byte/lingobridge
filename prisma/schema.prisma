@@ -38,8 +38,18 @@ model User {
   @@map("users")
 }
 
-enum Lang  { VI HI EN }
-enum Level { BEGINNER ELEMENTARY INTERMEDIATE ADVANCED }
+enum Lang {
+  VI
+  HI
+  EN
+}
+
+enum Level {
+  BEGINNER
+  ELEMENTARY
+  INTERMEDIATE
+  ADVANCED
+}
 
 // ─── LESSONS ─────────────────────────────────────────
 model Unit {
@@ -79,7 +89,12 @@ model Exercise {
   @@map("exercises")
 }
 
-enum ExerciseType { MC ASSEMBLE SPEAK FLASHCARD }
+enum ExerciseType {
+  MC
+  ASSEMBLE
+  SPEAK
+  FLASHCARD
+}
 
 // ─── PROGRESS ────────────────────────────────────────
 model LessonProgress {
