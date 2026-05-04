@@ -46,6 +46,14 @@ export const en = {
   placement_question: 'Question',
   placement_of: 'of',
   placement_complete: 'All done!',
+  placement_what_does_mean: 'What does this mean?',
+  placement_skip_test: "Skip — I'm a complete beginner",
+  placement_saving: 'Saving your result…',
+  placement_result_title: 'Your level:',
+  placement_result_beginner: 'Beginner',
+  placement_result_elementary: 'Elementary',
+  placement_result_intermediate: 'Intermediate',
+  placement_start_learning: 'Start Learning!',
 
   // ── Home ─────────────────────────────────────────────
   home_daily_goal: 'Daily goal',

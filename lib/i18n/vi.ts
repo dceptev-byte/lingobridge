@@ -48,6 +48,14 @@ export const vi: Record<TranslationKeys, string> = {
   placement_question: 'Câu hỏi',
   placement_of: 'trong số',
   placement_complete: 'Hoàn thành!',
+  placement_what_does_mean: 'Từ này có nghĩa là gì?',
+  placement_skip_test: 'Bỏ qua — Tôi là người mới hoàn toàn',
+  placement_saving: 'Đang lưu kết quả…',
+  placement_result_title: 'Trình độ của bạn:',
+  placement_result_beginner: 'Người mới',
+  placement_result_elementary: 'Cơ bản',
+  placement_result_intermediate: 'Trung cấp',
+  placement_start_learning: 'Bắt đầu học!',
 
   // ── Home ─────────────────────────────────────────────
   home_daily_goal: 'Mục tiêu hôm nay',

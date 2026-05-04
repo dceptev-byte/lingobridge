@@ -48,6 +48,14 @@ export const hi: Record<TranslationKeys, string> = {
   placement_question: 'प्रश्न',
   placement_of: 'में से',
   placement_complete: 'हो गया!',
+  placement_what_does_mean: 'इसका क्या अर्थ है?',
+  placement_skip_test: 'छोड़ें — मैं पूरी तरह नया हूँ',
+  placement_saving: 'परिणाम सहेजा जा रहा है…',
+  placement_result_title: 'आपका स्तर:',
+  placement_result_beginner: 'शुरुआती',
+  placement_result_elementary: 'प्रारंभिक',
+  placement_result_intermediate: 'मध्यवर्ती',
+  placement_start_learning: 'सीखना शुरू करें!',
 
   // ── Home ─────────────────────────────────────────────
   home_daily_goal: 'दैनिक लक्ष्य',

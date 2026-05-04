@@ -1,0 +1,58 @@
+{
+  "vi-hi": [
+    {
+      "id": "vi-hi-p1",
+      "char": "नमस्ते",
+      "charRoman": "Na-mas-te",
+      "options": ["Xin chào", "Cảm ơn", "Tạm biệt", "Xin lỗi"],
+      "correctIndex": 0
+    },
+    {
+      "id": "vi-hi-p2",
+      "char": "तीन",
+      "charRoman": "tīn",
+      "options": ["Một", "Hai", "Ba", "Bốn"],
+      "correctIndex": 2
+    },
+    {
+      "id": "vi-hi-p3",
+      "char": "मुझे हिंदी पसंद है",
+      "charRoman": "Mujhe Hindi pasand hai",
+      "options": [
+        "Tôi thích tiếng Hindi",
+        "Tôi đang ăn cơm",
+        "Hôm nay trời đẹp",
+        "Tôi sống ở Hà Nội"
+      ],
+      "correctIndex": 0
+    }
+  ],
+  "hi-vi": [
+    {
+      "id": "hi-vi-p1",
+      "char": "Xin chào",
+      "charRoman": "sin chow",
+      "options": ["नमस्ते", "धन्यवाद", "अलविदा", "माफ़ करना"],
+      "correctIndex": 0
+    },
+    {
+      "id": "hi-vi-p2",
+      "char": "ba",
+      "charRoman": "ba",
+      "options": ["एक", "दो", "तीन", "चार"],
+      "correctIndex": 2
+    },
+    {
+      "id": "hi-vi-p3",
+      "char": "Tôi thích tiếng Việt",
+      "charRoman": "Tôi thích tiếng Việt",
+      "options": [
+        "मुझे वियतनामी भाषा पसंद है",
+        "मैं खाना खा रहा हूँ",
+        "आज मौसम अच्छा है",
+        "मैं हनोई में रहता हूँ"
+      ],
+      "correctIndex": 0
+    }
+  ]
+}

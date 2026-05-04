@@ -4,6 +4,7 @@ import type { NextRequest } from 'next/server'
 
 const PROTECTED_PATHS = [
   '/home',
+  '/placement',
   '/lesson',
   '/flashcards',
   '/league',
