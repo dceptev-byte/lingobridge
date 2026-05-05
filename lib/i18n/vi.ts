@@ -41,6 +41,13 @@ export const vi: Record<TranslationKeys, string> = {
   lesson_xp_earned: 'XP kiếm được',
   lesson_accuracy: 'Độ chính xác',
   lesson_hearts_left: 'Tim còn lại',
+  lesson_tap_to_speak: 'Nhấn để nói',
+  lesson_listening: 'Đang lắng nghe…',
+  lesson_arrange_words: 'Sắp xếp các từ',
+  lesson_select_meaning: 'Chọn nghĩa đúng',
+  lesson_no_hearts: 'Hết tim!',
+  lesson_restart: 'Học lại',
+  lesson_well_done: 'Xuất sắc!',
 
   // ── Placement ────────────────────────────────────────
   placement_title: 'Bài kiểm tra xếp lớp nhanh',

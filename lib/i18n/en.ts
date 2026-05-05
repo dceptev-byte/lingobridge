@@ -39,6 +39,13 @@ export const en = {
   lesson_xp_earned: 'XP earned',
   lesson_accuracy: 'Accuracy',
   lesson_hearts_left: 'Hearts left',
+  lesson_tap_to_speak: 'Tap to speak',
+  lesson_listening: 'Listening…',
+  lesson_arrange_words: 'Arrange the words',
+  lesson_select_meaning: 'Select the correct meaning',
+  lesson_no_hearts: 'Out of hearts!',
+  lesson_restart: 'Restart lesson',
+  lesson_well_done: 'Well done!',
 
   // ── Placement ────────────────────────────────────────
   placement_title: 'Quick placement test',

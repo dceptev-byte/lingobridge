@@ -41,6 +41,13 @@ export const hi: Record<TranslationKeys, string> = {
   lesson_xp_earned: 'XP अर्जित',
   lesson_accuracy: 'सटीकता',
   lesson_hearts_left: 'दिल बचे',
+  lesson_tap_to_speak: 'बोलने के लिए टैप करें',
+  lesson_listening: 'सुन रहे हैं…',
+  lesson_arrange_words: 'शब्दों को सजाएं',
+  lesson_select_meaning: 'सही अर्थ चुनें',
+  lesson_no_hearts: 'दिल खत्म!',
+  lesson_restart: 'फिर से शुरू करें',
+  lesson_well_done: 'शाबाश!',
 
   // ── Placement ────────────────────────────────────────
   placement_title: 'त्वरित स्तर परीक्षण',
