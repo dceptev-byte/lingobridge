@@ -65,6 +65,8 @@ export const hi: Record<TranslationKeys, string> = {
   home_continue_learning: 'सीखना जारी रखें',
   home_start_lesson: 'पाठ शुरू करें',
   home_locked: 'बंद',
+  home_unit: 'इकाई',
+  home_no_lessons: 'पाठ तैयार किए जा रहे हैं — जल्द वापस आएं!',
 
   // ── Common ───────────────────────────────────────────
   btn_check: 'जांचें',

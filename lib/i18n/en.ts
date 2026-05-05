@@ -63,6 +63,8 @@ export const en = {
   home_continue_learning: 'Continue learning',
   home_start_lesson: 'Start lesson',
   home_locked: 'Locked',
+  home_unit: 'Unit',
+  home_no_lessons: 'Lessons are being prepared — check back soon!',
 
   // ── Common ───────────────────────────────────────────
   btn_check: 'Check',

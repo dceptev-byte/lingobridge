@@ -65,6 +65,8 @@ export const vi: Record<TranslationKeys, string> = {
   home_continue_learning: 'Tiếp tục học',
   home_start_lesson: 'Bắt đầu bài học',
   home_locked: 'Đã khóa',
+  home_unit: 'Đơn vị',
+  home_no_lessons: 'Bài học đang được chuẩn bị — hãy quay lại sớm!',
 
   // ── Common ───────────────────────────────────────────
   btn_check: 'Kiểm tra',

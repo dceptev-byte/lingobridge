@@ -13,6 +13,9 @@ const config: Config = {
         body: ['var(--font-be-vietnam-pro)', 'sans-serif'],
         hindi: ['var(--font-mukta)', 'sans-serif'],
       },
+      animation: {
+        'pulse-slow': 'pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+      },
       colors: {
         navy: {
           50: '#f0f4ff',
