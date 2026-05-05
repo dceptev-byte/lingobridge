@@ -75,6 +75,13 @@ export const vi: Record<TranslationKeys, string> = {
   home_unit: 'Đơn vị',
   home_no_lessons: 'Bài học đang được chuẩn bị — hãy quay lại sớm!',
 
+  // ── Units & Lessons ──────────────────────────────────
+  unit1_vi_hi_title: 'Lời chào & Số đếm',
+  unit1_hi_vi_title: 'Lời chào & Số đếm',
+  lesson_greetings_title: 'Lời chào',
+  lesson_numbers_title: 'Số đếm',
+  lesson_phrases_title: 'Câu cơ bản',
+
   // ── Common ───────────────────────────────────────────
   btn_check: 'Kiểm tra',
   btn_continue: 'Tiếp tục',

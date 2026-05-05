@@ -73,6 +73,13 @@ export const en = {
   home_unit: 'Unit',
   home_no_lessons: 'Lessons are being prepared — check back soon!',
 
+  // ── Units & Lessons ──────────────────────────────────
+  unit1_vi_hi_title: 'Greetings & Numbers',
+  unit1_hi_vi_title: 'Greetings & Numbers',
+  lesson_greetings_title: 'Greetings',
+  lesson_numbers_title: 'Numbers',
+  lesson_phrases_title: 'Basic Phrases',
+
   // ── Common ───────────────────────────────────────────
   btn_check: 'Check',
   btn_continue: 'Continue',

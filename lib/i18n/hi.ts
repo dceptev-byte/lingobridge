@@ -75,6 +75,13 @@ export const hi: Record<TranslationKeys, string> = {
   home_unit: 'इकाई',
   home_no_lessons: 'पाठ तैयार किए जा रहे हैं — जल्द वापस आएं!',
 
+  // ── Units & Lessons ──────────────────────────────────
+  unit1_vi_hi_title: 'अभिवादन और संख्याएँ',
+  unit1_hi_vi_title: 'अभिवादन और संख्याएँ',
+  lesson_greetings_title: 'अभिवादन',
+  lesson_numbers_title: 'संख्याएँ',
+  lesson_phrases_title: 'मूल वाक्यांश',
+
   // ── Common ───────────────────────────────────────────
   btn_check: 'जांचें',
   btn_continue: 'जारी रखें',

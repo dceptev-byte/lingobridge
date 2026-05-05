@@ -1,0 +1,254 @@
+{
+  "unit": {
+    "slug": "hi-vi-unit-1",
+    "order": 1,
+    "langPair": "hi-vi",
+    "titleKey": "unit1_hi_vi_title",
+    "isPremium": false
+  },
+  "lessons": [
+    {
+      "slug": "hi-vi-u1-l1",
+      "order": 1,
+      "titleKey": "lesson_greetings_title",
+      "xpReward": 15,
+      "exercises": [
+        {
+          "order": 1,
+          "type": "MC",
+          "data": {
+            "char": "Xin chào",
+            "options": {
+              "hi": ["नमस्ते", "अलविदा", "धन्यवाद", "माफ़ करें"],
+              "vi": ["Xin chào", "Tạm biệt", "Cảm ơn", "Xin lỗi"],
+              "en": ["Hello", "Goodbye", "Thank you", "Sorry"]
+            },
+            "correctIndex": 0
+          }
+        },
+        {
+          "order": 2,
+          "type": "MC",
+          "data": {
+            "char": "Cảm ơn",
+            "options": {
+              "hi": ["नमस्ते", "धन्यवाद", "अलविदा", "माफ़ करें"],
+              "vi": ["Xin chào", "Cảm ơn", "Tạm biệt", "Xin lỗi"],
+              "en": ["Hello", "Thank you", "Goodbye", "Sorry"]
+            },
+            "correctIndex": 1
+          }
+        },
+        {
+          "order": 3,
+          "type": "MC",
+          "data": {
+            "char": "Tạm biệt",
+            "options": {
+              "hi": ["नमस्ते", "धन्यवाद", "अलविदा", "माफ़ करें"],
+              "vi": ["Xin chào", "Cảm ơn", "Tạm biệt", "Xin lỗi"],
+              "en": ["Hello", "Thank you", "Goodbye", "Sorry"]
+            },
+            "correctIndex": 2
+          }
+        },
+        {
+          "order": 4,
+          "type": "SPEAK",
+          "data": {
+            "char": "Xin chào",
+            "charRoman": "xin chào",
+            "targetLang": "vi",
+            "passThreshold": 70
+          }
+        },
+        {
+          "order": 5,
+          "type": "ASSEMBLE",
+          "data": {
+            "words": ["Xin", "chào", "bạn"],
+            "answer": "Xin chào bạn"
+          }
+        },
+        {
+          "order": 6,
+          "type": "MC",
+          "data": {
+            "char": "Xin lỗi",
+            "options": {
+              "hi": ["नमस्ते", "धन्यवाद", "अलविदा", "माफ़ करें"],
+              "vi": ["Xin chào", "Cảm ơn", "Tạm biệt", "Xin lỗi"],
+              "en": ["Hello", "Thank you", "Goodbye", "Sorry"]
+            },
+            "correctIndex": 3
+          }
+        }
+      ]
+    },
+    {
+      "slug": "hi-vi-u1-l2",
+      "order": 2,
+      "titleKey": "lesson_numbers_title",
+      "xpReward": 15,
+      "exercises": [
+        {
+          "order": 1,
+          "type": "MC",
+          "data": {
+            "char": "một",
+            "charRoman": "mot",
+            "options": {
+              "hi": ["एक", "दो", "तीन", "चार"],
+              "vi": ["một", "hai", "ba", "bốn"],
+              "en": ["one", "two", "three", "four"]
+            },
+            "correctIndex": 0
+          }
+        },
+        {
+          "order": 2,
+          "type": "MC",
+          "data": {
+            "char": "hai",
+            "options": {
+              "hi": ["एक", "दो", "तीन", "चार"],
+              "vi": ["một", "hai", "ba", "bốn"],
+              "en": ["one", "two", "three", "four"]
+            },
+            "correctIndex": 1
+          }
+        },
+        {
+          "order": 3,
+          "type": "MC",
+          "data": {
+            "char": "ba",
+            "options": {
+              "hi": ["चार", "एक", "दो", "तीन"],
+              "vi": ["bốn", "một", "hai", "ba"],
+              "en": ["four", "one", "two", "three"]
+            },
+            "correctIndex": 3
+          }
+        },
+        {
+          "order": 4,
+          "type": "MC",
+          "data": {
+            "char": "bốn",
+            "charRoman": "bon",
+            "options": {
+              "hi": ["तीन", "चार", "एक", "दो"],
+              "vi": ["ba", "bốn", "một", "hai"],
+              "en": ["three", "four", "one", "two"]
+            },
+            "correctIndex": 1
+          }
+        },
+        {
+          "order": 5,
+          "type": "MC",
+          "data": {
+            "char": "năm",
+            "options": {
+              "hi": ["पाँच", "चार", "तीन", "दो"],
+              "vi": ["năm", "bốn", "ba", "hai"],
+              "en": ["five", "four", "three", "two"]
+            },
+            "correctIndex": 0
+          }
+        },
+        {
+          "order": 6,
+          "type": "ASSEMBLE",
+          "data": {
+            "words": ["một", "hai", "ba"],
+            "answer": "một hai ba"
+          }
+        }
+      ]
+    },
+    {
+      "slug": "hi-vi-u1-l3",
+      "order": 3,
+      "titleKey": "lesson_phrases_title",
+      "xpReward": 20,
+      "exercises": [
+        {
+          "order": 1,
+          "type": "MC",
+          "data": {
+            "char": "Tôi khỏe",
+            "charRoman": "toi khoe",
+            "options": {
+              "hi": ["मैं ठीक हूँ", "मैं बीमार हूँ", "मैं थका हूँ", "मैं उदास हूँ"],
+              "vi": ["Tôi khỏe", "Tôi không khỏe", "Tôi mệt", "Tôi buồn"],
+              "en": ["I'm fine", "I'm sick", "I'm tired", "I'm sad"]
+            },
+            "correctIndex": 0
+          }
+        },
+        {
+          "order": 2,
+          "type": "MC",
+          "data": {
+            "char": "Bạn có khỏe không?",
+            "charRoman": "ban co khoe khong",
+            "options": {
+              "hi": ["आप कौन हैं?", "आप कैसे हैं?", "आप कहाँ हैं?", "आप क्या चाहते हैं?"],
+              "vi": ["Bạn là ai?", "Bạn có khỏe không?", "Bạn ở đâu?", "Bạn muốn gì?"],
+              "en": ["Who are you?", "How are you?", "Where are you?", "What do you want?"]
+            },
+            "correctIndex": 1
+          }
+        },
+        {
+          "order": 3,
+          "type": "SPEAK",
+          "data": {
+            "char": "Xin chào bạn",
+            "charRoman": "xin chao ban",
+            "targetLang": "vi",
+            "passThreshold": 70
+          }
+        },
+        {
+          "order": 4,
+          "type": "MC",
+          "data": {
+            "char": "Tên tôi là ...",
+            "charRoman": "ten toi la",
+            "options": {
+              "hi": ["मैं ठीक हूँ", "आप कैसे हैं?", "मेरा नाम ... है", "मैं भारतीय हूँ"],
+              "vi": ["Tôi khỏe", "Bạn có khỏe không?", "Tên tôi là ...", "Tôi là người Ấn Độ"],
+              "en": ["I'm fine", "How are you?", "My name is ...", "I'm Indian"]
+            },
+            "correctIndex": 2
+          }
+        },
+        {
+          "order": 5,
+          "type": "ASSEMBLE",
+          "data": {
+            "words": ["Tôi", "thích", "tiếng", "Việt"],
+            "answer": "Tôi thích tiếng Việt"
+          }
+        },
+        {
+          "order": 6,
+          "type": "MC",
+          "data": {
+            "char": "Chào buổi sáng",
+            "charRoman": "chao buoi sang",
+            "options": {
+              "hi": ["शुभ प्रभात", "शुभ संध्या", "शुभ रात्रि", "नमस्ते"],
+              "vi": ["Chào buổi sáng", "Chào buổi tối", "Chúc ngủ ngon", "Xin chào"],
+              "en": ["Good morning", "Good evening", "Good night", "Hello"]
+            },
+            "correctIndex": 0
+          }
+        }
+      ]
+    }
+  ]
+}
