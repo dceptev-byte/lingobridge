@@ -82,6 +82,27 @@ export const hi: Record<TranslationKeys, string> = {
   lesson_numbers_title: 'संख्याएँ',
   lesson_phrases_title: 'मूल वाक्यांश',
 
+  // ── Profile ──────────────────────────────────────────
+  profile_title: 'प्रोफ़ाइल',
+  profile_stats: 'आपके आँकड़े',
+  profile_badges: 'बैज',
+  profile_settings: 'सेटिंग्स',
+  profile_streak_current: 'वर्तमान स्ट्रीक',
+  profile_streak_longest: 'सबसे लंबी स्ट्रीक',
+  profile_total_xp: 'कुल XP',
+  profile_gems: 'जेम',
+  profile_level: 'स्तर',
+  profile_lessons_done: 'पाठ पूरे किए',
+  profile_member_since: 'सदस्य बने',
+  profile_display_name: 'प्रदर्शन नाम',
+  profile_display_name_placeholder: 'प्रदर्शन नाम दर्ज करें',
+  profile_save: 'सहेजें',
+  profile_saving: 'सहेज रहे हैं…',
+  profile_saved: 'सहेजा गया!',
+  profile_sign_out: 'साइन आउट',
+  profile_badge_locked: 'बंद',
+  profile_days: 'दिन',
+
   // ── Explore ──────────────────────────────────────────
   explore_title: 'एक्सप्लोर',
   explore_culture: 'संस्कृति',

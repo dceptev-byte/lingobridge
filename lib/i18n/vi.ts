@@ -82,6 +82,27 @@ export const vi: Record<TranslationKeys, string> = {
   lesson_numbers_title: 'Số đếm',
   lesson_phrases_title: 'Câu cơ bản',
 
+  // ── Profile ──────────────────────────────────────────
+  profile_title: 'Hồ sơ',
+  profile_stats: 'Thống kê của bạn',
+  profile_badges: 'Huy hiệu',
+  profile_settings: 'Cài đặt',
+  profile_streak_current: 'Chuỗi hiện tại',
+  profile_streak_longest: 'Chuỗi dài nhất',
+  profile_total_xp: 'Tổng XP',
+  profile_gems: 'Gem',
+  profile_level: 'Cấp độ',
+  profile_lessons_done: 'Bài học hoàn thành',
+  profile_member_since: 'Thành viên từ',
+  profile_display_name: 'Tên hiển thị',
+  profile_display_name_placeholder: 'Nhập tên hiển thị',
+  profile_save: 'Lưu',
+  profile_saving: 'Đang lưu…',
+  profile_saved: 'Đã lưu!',
+  profile_sign_out: 'Đăng xuất',
+  profile_badge_locked: 'Chưa mở khóa',
+  profile_days: 'ngày',
+
   // ── Explore ──────────────────────────────────────────
   explore_title: 'Khám phá',
   explore_culture: 'Văn hóa',

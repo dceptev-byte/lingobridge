@@ -80,6 +80,27 @@ export const en = {
   lesson_numbers_title: 'Numbers',
   lesson_phrases_title: 'Basic Phrases',
 
+  // ── Profile ──────────────────────────────────────────
+  profile_title: 'Profile',
+  profile_stats: 'Your stats',
+  profile_badges: 'Badges',
+  profile_settings: 'Settings',
+  profile_streak_current: 'Current streak',
+  profile_streak_longest: 'Longest streak',
+  profile_total_xp: 'Total XP',
+  profile_gems: 'Gems',
+  profile_level: 'Level',
+  profile_lessons_done: 'Lessons done',
+  profile_member_since: 'Member since',
+  profile_display_name: 'Display name',
+  profile_display_name_placeholder: 'Enter a display name',
+  profile_save: 'Save',
+  profile_saving: 'Saving…',
+  profile_saved: 'Saved!',
+  profile_sign_out: 'Sign out',
+  profile_badge_locked: 'Locked',
+  profile_days: 'days',
+
   // ── Explore ──────────────────────────────────────────
   explore_title: 'Explore',
   explore_culture: 'Culture',
