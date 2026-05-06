@@ -82,6 +82,13 @@ export const hi: Record<TranslationKeys, string> = {
   lesson_numbers_title: 'संख्याएँ',
   lesson_phrases_title: 'मूल वाक्यांश',
 
+  // ── Explore ──────────────────────────────────────────
+  explore_title: 'एक्सप्लोर',
+  explore_culture: 'संस्कृति',
+  explore_phrases: 'फ्रेज़बुक',
+  explore_tap_to_copy: 'कॉपी करने के लिए टैप करें',
+  explore_copied: 'कॉपी हो गया!',
+
   // ── Level up ─────────────────────────────────────────
   levelup_title: 'लेवल अप!',
   levelup_body: 'आपने {level} हासिल किया',

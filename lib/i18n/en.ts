@@ -80,6 +80,13 @@ export const en = {
   lesson_numbers_title: 'Numbers',
   lesson_phrases_title: 'Basic Phrases',
 
+  // ── Explore ──────────────────────────────────────────
+  explore_title: 'Explore',
+  explore_culture: 'Culture',
+  explore_phrases: 'Phrasebook',
+  explore_tap_to_copy: 'Tap to copy',
+  explore_copied: 'Copied!',
+
   // ── Level up ─────────────────────────────────────────
   levelup_title: 'Level up!',
   levelup_body: 'You\'ve reached {level}',

@@ -82,6 +82,13 @@ export const vi: Record<TranslationKeys, string> = {
   lesson_numbers_title: 'Số đếm',
   lesson_phrases_title: 'Câu cơ bản',
 
+  // ── Explore ──────────────────────────────────────────
+  explore_title: 'Khám phá',
+  explore_culture: 'Văn hóa',
+  explore_phrases: 'Sổ tay từ vựng',
+  explore_tap_to_copy: 'Nhấn để sao chép',
+  explore_copied: 'Đã sao chép!',
+
   // ── Level up ─────────────────────────────────────────
   levelup_title: 'Lên cấp!',
   levelup_body: 'Bạn đã đạt {level}',
