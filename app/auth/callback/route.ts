@@ -3,6 +3,8 @@ import { cookies } from 'next/headers'
 import { NextResponse } from 'next/server'
 import type { NextRequest } from 'next/server'
 import { prisma } from '@/lib/prisma'
+import { getResend, FROM } from '@/lib/email/resend'
+import { welcomeEmail } from '@/lib/email/templates'
 
 export async function GET(request: NextRequest) {
   const requestUrl = new URL(request.url)
@@ -36,6 +38,25 @@ export async function GET(request: NextRequest) {
             targetLang: 'HI',
           },
         })
+
+        // Send welcome email — fire-and-forget, don't block the redirect
+        try {
+          const { subject, html } = welcomeEmail({
+            displayName: user.user_metadata?.full_name ?? null,
+            email: user.email!,
+            nativeLang: 'VI',
+          })
+          await getResend().emails.send({
+            from: FROM,
+            to: user.email!,
+            subject,
+            html,
+          })
+        } catch (err) {
+          // Email failure must never block auth
+          console.error('[email] welcome send failed:', err)
+        }
+
         return NextResponse.redirect(new URL('/placement', requestUrl.origin))
       }
     }
