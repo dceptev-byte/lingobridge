@@ -82,6 +82,25 @@ export const hi: Record<TranslationKeys, string> = {
   lesson_numbers_title: 'संख्याएँ',
   lesson_phrases_title: 'मूल वाक्यांश',
 
+  // ── Flashcards ───────────────────────────────────────
+  flashcard_title: 'फ्लैशकार्ड',
+  flashcard_due: 'कार्ड बाकी',
+  flashcard_none_due: 'सब हो गया!',
+  flashcard_none_due_sub: 'बाद में और कार्ड के लिए वापस आएं।',
+  flashcard_next_due: 'अगली समीक्षा:',
+  flashcard_tap_to_flip: 'देखने के लिए टैप करें',
+  flashcard_how_well: 'आप इसे कितना जानते थे?',
+  flashcard_again: 'फिर से',
+  flashcard_hard: 'कठिन',
+  flashcard_good: 'ठीक',
+  flashcard_easy: 'आसान',
+  flashcard_complete_title: 'सत्र पूरा!',
+  flashcard_complete_sub: 'आपने सभी बकाया कार्ड की समीक्षा की।',
+  flashcard_cards_reviewed: 'समीक्षित कार्ड',
+  flashcard_back_home: 'होम पर वापस',
+  flashcard_no_cards: 'अभी कोई फ्लैशकार्ड नहीं',
+  flashcard_no_cards_sub: 'पहले कार्ड अनलॉक करने के लिए एक पाठ पूरा करें।',
+
   // ── Common ───────────────────────────────────────────
   btn_check: 'जांचें',
   btn_continue: 'जारी रखें',

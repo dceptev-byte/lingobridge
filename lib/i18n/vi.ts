@@ -82,6 +82,25 @@ export const vi: Record<TranslationKeys, string> = {
   lesson_numbers_title: 'Số đếm',
   lesson_phrases_title: 'Câu cơ bản',
 
+  // ── Flashcards ───────────────────────────────────────
+  flashcard_title: 'Thẻ từ',
+  flashcard_due: 'thẻ cần ôn',
+  flashcard_none_due: 'Đã hoàn thành tất cả!',
+  flashcard_none_due_sub: 'Hãy quay lại sau để ôn thêm thẻ.',
+  flashcard_next_due: 'Ôn tiếp theo:',
+  flashcard_tap_to_flip: 'Nhấn để xem',
+  flashcard_how_well: 'Bạn nhớ tốt đến mức nào?',
+  flashcard_again: 'Ôn lại',
+  flashcard_hard: 'Khó',
+  flashcard_good: 'Tốt',
+  flashcard_easy: 'Dễ',
+  flashcard_complete_title: 'Hoàn thành buổi học!',
+  flashcard_complete_sub: 'Bạn đã ôn tất cả các thẻ cần thiết.',
+  flashcard_cards_reviewed: 'Thẻ đã ôn',
+  flashcard_back_home: 'Về trang chủ',
+  flashcard_no_cards: 'Chưa có thẻ từ',
+  flashcard_no_cards_sub: 'Hoàn thành một bài học để mở khóa thẻ đầu tiên.',
+
   // ── Common ───────────────────────────────────────────
   btn_check: 'Kiểm tra',
   btn_continue: 'Tiếp tục',

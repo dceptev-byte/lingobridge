@@ -52,6 +52,28 @@ export async function POST(request: Request) {
   })
   if (!user) return NextResponse.json({ error: 'User not found' }, { status: 404 })
 
+  // Seed FlashcardReview rows for each exercise in this lesson (new cards only)
+  const exercises = await prisma.exercise.findMany({
+    where: { lessonId, type: { in: ['MC', 'ASSEMBLE'] } },
+    select: { id: true },
+  })
+  const existingReviews = await prisma.flashcardReview.findMany({
+    where: { userId: session.user.id, cardId: { in: exercises.map((e) => e.id) } },
+    select: { cardId: true },
+  })
+  const existingCardIds = new Set(existingReviews.map((r) => r.cardId))
+  const newCards = exercises.filter((e) => !existingCardIds.has(e.id))
+  if (newCards.length > 0) {
+    await prisma.flashcardReview.createMany({
+      data: newCards.map((e) => ({
+        userId: session.user.id,
+        cardId: e.id,
+        // Due immediately so they're reviewable right after the lesson
+        nextReview: new Date(),
+      })),
+    })
+  }
+
   // Upsert lesson progress
   await prisma.lessonProgress.upsert({
     where: { userId_lessonId: { userId: session.user.id, lessonId } },

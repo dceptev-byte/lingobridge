@@ -80,6 +80,25 @@ export const en = {
   lesson_numbers_title: 'Numbers',
   lesson_phrases_title: 'Basic Phrases',
 
+  // ── Flashcards ───────────────────────────────────────
+  flashcard_title: 'Flashcards',
+  flashcard_due: 'cards due',
+  flashcard_none_due: 'All caught up!',
+  flashcard_none_due_sub: 'Come back later for more cards.',
+  flashcard_next_due: 'Next review:',
+  flashcard_tap_to_flip: 'Tap to reveal',
+  flashcard_how_well: 'How well did you know it?',
+  flashcard_again: 'Again',
+  flashcard_hard: 'Hard',
+  flashcard_good: 'Good',
+  flashcard_easy: 'Easy',
+  flashcard_complete_title: 'Session complete!',
+  flashcard_complete_sub: 'You reviewed all due cards.',
+  flashcard_cards_reviewed: 'Cards reviewed',
+  flashcard_back_home: 'Back to home',
+  flashcard_no_cards: 'No flashcards yet',
+  flashcard_no_cards_sub: 'Complete a lesson to unlock your first cards.',
+
   // ── Common ───────────────────────────────────────────
   btn_check: 'Check',
   btn_continue: 'Continue',
