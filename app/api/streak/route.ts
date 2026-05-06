@@ -49,6 +49,7 @@ export async function POST() {
   const lastMs = lastDay?.getTime()
 
   let newStreak = user.streakCurrent
+  let streakBroken = false
 
   if (lastMs === today.getTime()) {
     // Already played today — no change
@@ -64,6 +65,7 @@ export async function POST() {
     })
   } else {
     // Streak broken — reset
+    if (user.streakCurrent > 1) streakBroken = true
     newStreak = 1
   }
 
@@ -94,6 +96,8 @@ export async function POST() {
   return NextResponse.json({
     streakCurrent: newStreak,
     streakLongest: newLongest,
+    previousStreak: user.streakCurrent,
+    ...(streakBroken ? { streakBroken: true } : {}),
     ...(milestone !== undefined ? { milestone } : {}),
     ...(gemsAwarded > 0 ? { gemsAwarded } : {}),
   })

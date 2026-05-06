@@ -82,6 +82,17 @@ export const hi: Record<TranslationKeys, string> = {
   lesson_numbers_title: 'संख्याएँ',
   lesson_phrases_title: 'मूल वाक्यांश',
 
+  // ── Streak ───────────────────────────────────────────
+  streak_milestone_title: 'स्ट्रीक माइलस्टोन!',
+  streak_milestone_body: 'आपने {days} दिन की स्ट्रीक बनाई!',
+  streak_milestone_gems: '+{gems} जेम पुरस्कार',
+  streak_milestone_cta: 'इसी तरह जारी रखें!',
+  streak_broken_title: 'स्ट्रीक खो गई 😢',
+  streak_broken_body: 'आपकी {days} दिन की स्ट्रीक समाप्त हो गई। हार मत मानो!',
+  streak_broken_tip: 'सुझाव: भविष्य की स्ट्रीक बचाने के लिए शॉप से streak freeze खरीदें।',
+  streak_broken_cta: 'जारी रखें!',
+  streak_freeze_count: 'स्ट्रीक फ्रीज़',
+
   // ── League ───────────────────────────────────────────
   league_title: 'लीग',
   league_weekly_xp: 'साप्ताहिक XP',

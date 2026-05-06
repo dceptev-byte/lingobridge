@@ -82,6 +82,17 @@ export const vi: Record<TranslationKeys, string> = {
   lesson_numbers_title: 'Số đếm',
   lesson_phrases_title: 'Câu cơ bản',
 
+  // ── Streak ───────────────────────────────────────────
+  streak_milestone_title: 'Cột mốc học liên tiếp!',
+  streak_milestone_body: 'Bạn đã học {days} ngày liên tiếp!',
+  streak_milestone_gems: '+{gems} gem phần thưởng',
+  streak_milestone_cta: 'Tiếp tục nào!',
+  streak_broken_title: 'Mất chuỗi ngày 😢',
+  streak_broken_body: 'Chuỗi {days} ngày của bạn đã kết thúc. Đừng bỏ cuộc!',
+  streak_broken_tip: 'Mẹo: mua streak freeze ở cửa hàng để bảo vệ chuỗi ngày sau.',
+  streak_broken_cta: 'Tiếp tục!',
+  streak_freeze_count: 'Streak freeze',
+
   // ── League ───────────────────────────────────────────
   league_title: 'Bảng xếp hạng',
   league_weekly_xp: 'XP tuần này',

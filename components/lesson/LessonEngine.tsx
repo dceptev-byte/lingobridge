@@ -4,6 +4,7 @@ import { useState, useCallback } from 'react'
 import { useRouter } from 'next/navigation'
 import { useI18nStore } from '../../store/i18nStore'
 import { useUserStore } from '../../store/userStore'
+import { useModalStore } from '../../store/modalStore'
 import { MultipleChoice, type MCData } from './MultipleChoice'
 import { WordAssembly, type AssembleData } from './WordAssembly'
 import { PronunciationExercise, type SpeakData } from './PronunciationExercise'
@@ -32,6 +33,8 @@ export function LessonEngine({ lesson }: { lesson: SerializedLesson }) {
   const { t } = useI18nStore()
   const updateXp = useUserStore((s) => s.updateXp)
   const updateStreak = useUserStore((s) => s.updateStreak)
+  const setStreakMilestone = useModalStore((s) => s.setStreakMilestone)
+  const setBrokenStreak = useModalStore((s) => s.setBrokenStreak)
 
   const [currentIdx, setCurrentIdx] = useState(0)
   const [hearts, setHearts] = useState(3)
@@ -117,12 +120,22 @@ export function LessonEngine({ lesson }: { lesson: SerializedLesson }) {
       ])
 
       if (progressRes.ok) {
-        const data = await progressRes.json() as { newTotalXp: number }
         updateXp(xpEarned)
       }
       if (streakRes.ok) {
-        const data = await streakRes.json() as { streakCurrent: number }
+        const data = await streakRes.json() as {
+          streakCurrent: number
+          previousStreak: number
+          streakBroken?: boolean
+          milestone?: number
+          gemsAwarded?: number
+        }
         updateStreak(data.streakCurrent)
+        if (data.milestone) {
+          setStreakMilestone(data.milestone, data.gemsAwarded ?? 0)
+        } else if (data.streakBroken && data.previousStreak > 1) {
+          setBrokenStreak(data.previousStreak)
+        }
       }
     } catch {
       // non-critical — navigate anyway

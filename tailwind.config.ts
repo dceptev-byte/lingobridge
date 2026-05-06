@@ -13,8 +13,15 @@ const config: Config = {
         body: ['var(--font-be-vietnam-pro)', 'sans-serif'],
         hindi: ['var(--font-mukta)', 'sans-serif'],
       },
+      keyframes: {
+        'modal-in': {
+          '0%': { opacity: '0', transform: 'scale(0.92)' },
+          '100%': { opacity: '1', transform: 'scale(1)' },
+        },
+      },
       animation: {
         'pulse-slow': 'pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+        'modal-in': 'modal-in 0.2s ease-out forwards',
       },
       colors: {
         navy: {

@@ -80,6 +80,17 @@ export const en = {
   lesson_numbers_title: 'Numbers',
   lesson_phrases_title: 'Basic Phrases',
 
+  // ── Streak ───────────────────────────────────────────
+  streak_milestone_title: 'Streak milestone!',
+  streak_milestone_body: 'You\'ve kept a {days}-day streak!',
+  streak_milestone_gems: '+{gems} gems reward',
+  streak_milestone_cta: 'Keep it up!',
+  streak_broken_title: 'Streak lost 😢',
+  streak_broken_body: 'Your {days}-day streak ended. Don\'t give up!',
+  streak_broken_tip: 'Tip: buy a streak freeze from the shop to protect future streaks.',
+  streak_broken_cta: 'Keep going!',
+  streak_freeze_count: 'Streak freezes',
+
   // ── League ───────────────────────────────────────────
   league_title: 'League',
   league_weekly_xp: 'Weekly XP',
