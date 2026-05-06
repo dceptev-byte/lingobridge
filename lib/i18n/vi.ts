@@ -82,6 +82,18 @@ export const vi: Record<TranslationKeys, string> = {
   lesson_numbers_title: 'Số đếm',
   lesson_phrases_title: 'Câu cơ bản',
 
+  // ── League ───────────────────────────────────────────
+  league_title: 'Bảng xếp hạng',
+  league_weekly_xp: 'XP tuần này',
+  league_rank: 'Hạng',
+  league_your_rank: 'Hạng của bạn',
+  league_resets_in: 'Đặt lại sau',
+  league_days: 'n',
+  league_hours: 'g',
+  league_empty: 'Chưa có bảng xếp hạng tuần này.',
+  league_empty_sub: 'Hoàn thành bài học để kiếm XP và leo bảng xếp hạng!',
+  league_you: 'Bạn',
+
   // ── Flashcards ───────────────────────────────────────
   flashcard_title: 'Thẻ từ',
   flashcard_due: 'thẻ cần ôn',

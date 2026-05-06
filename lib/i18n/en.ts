@@ -80,6 +80,18 @@ export const en = {
   lesson_numbers_title: 'Numbers',
   lesson_phrases_title: 'Basic Phrases',
 
+  // ── League ───────────────────────────────────────────
+  league_title: 'League',
+  league_weekly_xp: 'Weekly XP',
+  league_rank: 'Rank',
+  league_your_rank: 'Your rank',
+  league_resets_in: 'Resets in',
+  league_days: 'd',
+  league_hours: 'h',
+  league_empty: 'No rankings yet this week.',
+  league_empty_sub: 'Complete lessons to earn XP and climb the leaderboard!',
+  league_you: 'You',
+
   // ── Flashcards ───────────────────────────────────────
   flashcard_title: 'Flashcards',
   flashcard_due: 'cards due',

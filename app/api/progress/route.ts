@@ -2,6 +2,7 @@ import { createServerClient } from '@supabase/auth-helpers-nextjs'
 import { cookies } from 'next/headers'
 import { NextResponse } from 'next/server'
 import { prisma } from '@/lib/prisma'
+import { getWeekStart } from '@/lib/league/week'
 import type { Level } from '@prisma/client'
 
 const GEMS_PER_LESSON = 5
@@ -100,6 +101,14 @@ export async function POST(request: Request) {
       gems: { increment: GEMS_PER_LESSON },
       level: newLevel,
     },
+  })
+
+  // Upsert this week's XP tally for the leaderboard
+  const weekStart = getWeekStart()
+  await prisma.weeklyXp.upsert({
+    where: { userId_weekStart: { userId: session.user.id, weekStart } },
+    update: { xp: { increment: xpEarned } },
+    create: { userId: session.user.id, weekStart, xp: xpEarned },
   })
 
   // Record gem transaction

@@ -82,6 +82,18 @@ export const hi: Record<TranslationKeys, string> = {
   lesson_numbers_title: 'संख्याएँ',
   lesson_phrases_title: 'मूल वाक्यांश',
 
+  // ── League ───────────────────────────────────────────
+  league_title: 'लीग',
+  league_weekly_xp: 'साप्ताहिक XP',
+  league_rank: 'रैंक',
+  league_your_rank: 'आपकी रैंक',
+  league_resets_in: 'रीसेट होगा',
+  league_days: 'दि',
+  league_hours: 'घं',
+  league_empty: 'इस सप्ताह अभी कोई रैंकिंग नहीं।',
+  league_empty_sub: 'XP कमाने और लीडरबोर्ड पर चढ़ने के लिए पाठ पूरे करें!',
+  league_you: 'आप',
+
   // ── Flashcards ───────────────────────────────────────
   flashcard_title: 'फ्लैशकार्ड',
   flashcard_due: 'कार्ड बाकी',

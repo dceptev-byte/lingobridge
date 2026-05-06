@@ -10,8 +10,8 @@ Lingobridge is a web-first language learning app for the Vietnamese and Hindi-sp
 It teaches Vietnamese speakers Hindi, and Hindi speakers Vietnamese.
 It is modelled on Duolingo's engagement loop with gamification, streaks, XP, and a freemium model.
 
-**Live URL:** https://lingobridge.app (not yet live)
-**Staging:**  https://staging.lingobridge.app (not yet live)
+**Live URL:** https://lingobridge.chillfivillage.com (not yet live)
+**Staging:**  https://staging.lingobridge.chillfivillage.com (not yet live)
 **Local:**    http://localhost:3000
 
 ---
