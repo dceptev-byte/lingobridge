@@ -82,6 +82,17 @@ export const hi: Record<TranslationKeys, string> = {
   lesson_numbers_title: 'संख्याएँ',
   lesson_phrases_title: 'मूल वाक्यांश',
 
+  // ── Level up ─────────────────────────────────────────
+  levelup_title: 'लेवल अप!',
+  levelup_body: 'आपने {level} हासिल किया',
+  levelup_cta: 'शानदार!',
+  level_beginner: 'शुरुआती',
+  level_elementary: 'प्रारंभिक',
+  level_intermediate: 'मध्यवर्ती',
+  level_advanced: 'उन्नत',
+  levelup_xp_to_next: 'अगले लेवल के लिए {xp} XP',
+  levelup_max: 'आपने शीर्ष हासिल कर लिया!',
+
   // ── Streak ───────────────────────────────────────────
   streak_milestone_title: 'स्ट्रीक माइलस्टोन!',
   streak_milestone_body: 'आपने {days} दिन की स्ट्रीक बनाई!',

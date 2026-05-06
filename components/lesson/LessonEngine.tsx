@@ -35,6 +35,7 @@ export function LessonEngine({ lesson }: { lesson: SerializedLesson }) {
   const updateStreak = useUserStore((s) => s.updateStreak)
   const setStreakMilestone = useModalStore((s) => s.setStreakMilestone)
   const setBrokenStreak = useModalStore((s) => s.setBrokenStreak)
+  const setLevelUp = useModalStore((s) => s.setLevelUp)
 
   const [currentIdx, setCurrentIdx] = useState(0)
   const [hearts, setHearts] = useState(3)
@@ -120,7 +121,15 @@ export function LessonEngine({ lesson }: { lesson: SerializedLesson }) {
       ])
 
       if (progressRes.ok) {
+        const pData = await progressRes.json() as {
+          leveledUp?: boolean
+          newLevel?: string
+          newTotalXp?: number
+        }
         updateXp(xpEarned)
+        if (pData.leveledUp && pData.newLevel) {
+          setLevelUp(pData.newLevel as import('../../store/modalStore').AppLevel)
+        }
       }
       if (streakRes.ok) {
         const data = await streakRes.json() as {

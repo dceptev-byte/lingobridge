@@ -80,6 +80,17 @@ export const en = {
   lesson_numbers_title: 'Numbers',
   lesson_phrases_title: 'Basic Phrases',
 
+  // ── Level up ─────────────────────────────────────────
+  levelup_title: 'Level up!',
+  levelup_body: 'You\'ve reached {level}',
+  levelup_cta: 'Awesome!',
+  level_beginner: 'Beginner',
+  level_elementary: 'Elementary',
+  level_intermediate: 'Intermediate',
+  level_advanced: 'Advanced',
+  levelup_xp_to_next: '{xp} XP to next level',
+  levelup_max: 'You\'ve reached the top!',
+
   // ── Streak ───────────────────────────────────────────
   streak_milestone_title: 'Streak milestone!',
   streak_milestone_body: 'You\'ve kept a {days}-day streak!',

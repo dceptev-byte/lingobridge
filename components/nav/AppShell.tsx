@@ -7,6 +7,7 @@ import { useUserStore, type AppUser } from '../../store/userStore'
 import { useModalStore } from '../../store/modalStore'
 import { StreakMilestoneModal } from '../streak/StreakMilestoneModal'
 import { BrokenStreakModal } from '../streak/BrokenStreakModal'
+import { LevelUpModal } from '../lesson/LevelUpModal'
 
 interface AppShellProps {
   user: AppUser | null
@@ -16,11 +17,15 @@ interface AppShellProps {
 export function AppShell({ user, children }: AppShellProps) {
   const setUser = useUserStore((s) => s.setUser)
 
+  const totalXp = useUserStore((s) => s.user?.totalXp ?? 0)
+
   const streakMilestone = useModalStore((s) => s.streakMilestone)
   const milestoneGems = useModalStore((s) => s.milestoneGems)
   const clearStreakMilestone = useModalStore((s) => s.clearStreakMilestone)
   const brokenStreak = useModalStore((s) => s.brokenStreak)
   const clearBrokenStreak = useModalStore((s) => s.clearBrokenStreak)
+  const levelUp = useModalStore((s) => s.levelUp)
+  const clearLevelUp = useModalStore((s) => s.clearLevelUp)
 
   useEffect(() => {
     if (user) setUser(user)
@@ -49,6 +54,15 @@ export function AppShell({ user, children }: AppShellProps) {
         <BrokenStreakModal
           oldStreak={brokenStreak}
           onClose={clearBrokenStreak}
+        />
+      )}
+
+      {/* Level-up celebration */}
+      {levelUp !== null && (
+        <LevelUpModal
+          level={levelUp}
+          totalXp={totalXp}
+          onClose={clearLevelUp}
         />
       )}
     </div>

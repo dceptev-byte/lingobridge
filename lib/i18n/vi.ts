@@ -82,6 +82,17 @@ export const vi: Record<TranslationKeys, string> = {
   lesson_numbers_title: 'Số đếm',
   lesson_phrases_title: 'Câu cơ bản',
 
+  // ── Level up ─────────────────────────────────────────
+  levelup_title: 'Lên cấp!',
+  levelup_body: 'Bạn đã đạt {level}',
+  levelup_cta: 'Tuyệt vời!',
+  level_beginner: 'Người mới',
+  level_elementary: 'Cơ bản',
+  level_intermediate: 'Trung cấp',
+  level_advanced: 'Nâng cao',
+  levelup_xp_to_next: 'Còn {xp} XP lên cấp tiếp',
+  levelup_max: 'Bạn đã đạt đỉnh cao!',
+
   // ── Streak ───────────────────────────────────────────
   streak_milestone_title: 'Cột mốc học liên tiếp!',
   streak_milestone_body: 'Bạn đã học {days} ngày liên tiếp!',
