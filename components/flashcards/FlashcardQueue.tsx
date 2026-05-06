@@ -6,6 +6,7 @@ import { FlashCard } from './FlashCard'
 import { useI18n } from '@/hooks/useI18n'
 import { useUserStore } from '@/store/userStore'
 import type { DueCard, FlashcardRating } from '@/types/flashcard'
+import { capture } from '@/lib/analytics/posthog'
 
 interface FlashcardQueueProps {
   initialCards: DueCard[]
@@ -30,16 +31,29 @@ export function FlashcardQueue({ initialCards, nextDue }: FlashcardQueueProps) {
       if (!currentCard) return
       setRating(r)
 
-      // Fire-and-forget — optimistic UI
+      const RATING_LABELS = ['again', 'hard', 'good', 'easy'] as const
+
+      // Fire-and-forget — optimistic UI; capture interval from API response
       fetch('/api/flashcards', {
         method: 'PUT',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ reviewId: currentCard.reviewId, rating: r }),
-      }).catch(console.error)
+      })
+        .then((res) => res.ok ? res.json() : null)
+        .then((data: { newInterval?: number } | null) => {
+          capture('flashcard_rated', {
+            card_id: currentCard.cardId,
+            rating: r,
+            rating_label: RATING_LABELS[r],
+            new_interval_days: data?.newInterval ?? 1,
+          })
+        })
+        .catch(console.error)
 
       setReviewed((n) => n + 1)
 
       if (currentIndex + 1 >= cards.length) {
+        capture('flashcard_session_complete', { cards_reviewed: reviewed + 1 })
         setDone(true)
       } else {
         setCurrentIndex((i) => i + 1)

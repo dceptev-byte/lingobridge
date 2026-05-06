@@ -8,6 +8,7 @@ import { useModalStore } from '../../store/modalStore'
 import { StreakMilestoneModal } from '../streak/StreakMilestoneModal'
 import { BrokenStreakModal } from '../streak/BrokenStreakModal'
 import { LevelUpModal } from '../lesson/LevelUpModal'
+import { identify } from '../../lib/analytics/posthog'
 
 interface AppShellProps {
   user: AppUser | null
@@ -28,7 +29,15 @@ export function AppShell({ user, children }: AppShellProps) {
   const clearLevelUp = useModalStore((s) => s.clearLevelUp)
 
   useEffect(() => {
-    if (user) setUser(user)
+    if (user) {
+      setUser(user)
+      // Identify user in PostHog with stable traits
+      identify(user.id, {
+        native_lang: user.nativeLang,
+        level: user.level,
+        is_premium: user.isPremium,
+      })
+    }
   }, [user, setUser])
 
   return (

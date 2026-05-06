@@ -5,6 +5,7 @@ import { useRouter } from 'next/navigation'
 import { useI18nStore } from '../../store/i18nStore'
 import { useUserStore } from '../../store/userStore'
 import { useModalStore } from '../../store/modalStore'
+import { capture } from '../../lib/analytics/posthog'
 import { MultipleChoice, type MCData } from './MultipleChoice'
 import { WordAssembly, type AssembleData } from './WordAssembly'
 import { PronunciationExercise, type SpeakData } from './PronunciationExercise'
@@ -127,8 +128,17 @@ export function LessonEngine({ lesson }: { lesson: SerializedLesson }) {
           newTotalXp?: number
         }
         updateXp(xpEarned)
+        capture('lesson_complete', {
+          lesson_id: lesson.id,
+          lesson_slug: lesson.slug,
+          xp_earned: xpEarned,
+          accuracy,
+          hearts_remaining: hearts,
+        })
         if (pData.leveledUp && pData.newLevel) {
-          setLevelUp(pData.newLevel as import('../../store/modalStore').AppLevel)
+          const lvl = pData.newLevel as import('../../store/modalStore').AppLevel
+          setLevelUp(lvl)
+          capture('level_up', { new_level: pData.newLevel, total_xp: pData.newTotalXp ?? 0 })
         }
       }
       if (streakRes.ok) {
@@ -142,8 +152,12 @@ export function LessonEngine({ lesson }: { lesson: SerializedLesson }) {
         updateStreak(data.streakCurrent)
         if (data.milestone) {
           setStreakMilestone(data.milestone, data.gemsAwarded ?? 0)
+          capture('milestone_reached', { streak_days: data.milestone, gems_awarded: data.gemsAwarded ?? 0 })
         } else if (data.streakBroken && data.previousStreak > 1) {
           setBrokenStreak(data.previousStreak)
+          capture('streak_broken', { previous_streak: data.previousStreak })
+        } else if (data.streakCurrent > (data.previousStreak ?? 0)) {
+          capture('streak_extended', { streak_current: data.streakCurrent })
         }
       }
     } catch {

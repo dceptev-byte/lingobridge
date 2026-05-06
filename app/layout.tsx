@@ -1,5 +1,6 @@
 import type { Metadata } from 'next'
 import { Baloo_2, Be_Vietnam_Pro, Mukta } from 'next/font/google'
+import { PostHogProvider } from '../components/analytics/PostHogProvider'
 import './globals.css'
 
 const baloo2 = Baloo_2({
@@ -36,7 +37,9 @@ export default function RootLayout({
   return (
     <html lang="vi">
       <body className={`${baloo2.variable} ${beVietnamPro.variable} ${mukta.variable} font-body antialiased`}>
-        {children}
+        <PostHogProvider>
+          {children}
+        </PostHogProvider>
       </body>
     </html>
   )

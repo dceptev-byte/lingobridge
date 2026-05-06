@@ -4,6 +4,7 @@ import { useState } from 'react'
 import { useRouter } from 'next/navigation'
 import { createClient } from '../../lib/supabase/client'
 import { useI18nStore } from '../../store/i18nStore'
+import { reset as analyticsReset } from '../../lib/analytics/posthog'
 
 interface SettingsSectionProps {
   initialDisplayName: string | null
@@ -39,6 +40,7 @@ export function SettingsSection({ initialDisplayName }: SettingsSectionProps) {
   }
 
   async function handleSignOut() {
+    analyticsReset()  // disassociate PostHog identity before clearing session
     const supabase = createClient()
     await supabase.auth.signOut()
     router.push('/login')

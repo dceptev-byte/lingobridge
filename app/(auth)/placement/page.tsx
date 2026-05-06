@@ -3,6 +3,7 @@
 import { useEffect, useState } from 'react'
 import { useRouter } from 'next/navigation'
 import { useI18nStore } from '../../../store/i18nStore'
+import { capture } from '../../../lib/analytics/posthog'
 import placementData from '../../../content/placement.json'
 
 interface Question {
@@ -50,6 +51,11 @@ export default function PlacementPage() {
 
   async function saveResult(finalScore: number) {
     setSaving(true)
+    // Placement page is only reached by brand-new users → fire sign_up
+    capture('sign_up', {
+      native_lang: lang,
+      method: 'google', // auth method not known here; close enough for segmentation
+    })
     try {
       await fetch('/api/placement', {
         method: 'POST',
