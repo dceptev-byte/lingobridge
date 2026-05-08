@@ -38,7 +38,7 @@ export async function POST(request: Request) {
     xpEarned: number
     heartsRemaining: number
   }
-  const { lessonId, accuracy, xpEarned, heartsRemaining: _heartsRemaining } = body
+  const { lessonId, accuracy, xpEarned } = body
 
   if (!lessonId || typeof accuracy !== 'number' || accuracy < 0 || accuracy > 1) {
     return NextResponse.json({ error: 'Invalid request body' }, { status: 400 })

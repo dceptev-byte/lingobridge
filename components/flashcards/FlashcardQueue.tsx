@@ -22,7 +22,7 @@ export function FlashcardQueue({ initialCards, nextDue }: FlashcardQueueProps) {
   const [currentIndex, setCurrentIndex] = useState(0)
   const [reviewed, setReviewed] = useState(0)
   const [done, setDone] = useState(false)
-  const [_rating, setRating] = useState<FlashcardRating | null>(null)
+  const [, setRating] = useState<FlashcardRating | null>(null)
 
   const currentCard = cards[currentIndex]
 
