@@ -18,11 +18,11 @@ export function FlashcardQueue({ initialCards, nextDue }: FlashcardQueueProps) {
   const user = useUserStore((s) => s.user)
   const nativeLang = user?.nativeLang ?? 'EN'
 
-  const [cards, setCards] = useState<DueCard[]>(initialCards)
+  const [cards] = useState<DueCard[]>(initialCards)
   const [currentIndex, setCurrentIndex] = useState(0)
   const [reviewed, setReviewed] = useState(0)
   const [done, setDone] = useState(false)
-  const [rating, setRating] = useState<FlashcardRating | null>(null)
+  const [_rating, setRating] = useState<FlashcardRating | null>(null)
 
   const currentCard = cards[currentIndex]
 

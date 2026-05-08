@@ -8,14 +8,6 @@ import type { Level } from '@prisma/client'
 
 const GEMS_PER_LESSON = 5
 
-// XP thresholds per level (total XP required to reach this level)
-const LEVEL_THRESHOLDS: Record<Level, number> = {
-  BEGINNER: 0,
-  ELEMENTARY: 100,
-  INTERMEDIATE: 300,
-  ADVANCED: 600,
-}
-
 function xpToLevel(totalXp: number): Level {
   if (totalXp >= 600) return 'ADVANCED'
   if (totalXp >= 300) return 'INTERMEDIATE'
@@ -46,7 +38,7 @@ export async function POST(request: Request) {
     xpEarned: number
     heartsRemaining: number
   }
-  const { lessonId, accuracy, xpEarned, heartsRemaining } = body
+  const { lessonId, accuracy, xpEarned, heartsRemaining: _heartsRemaining } = body
 
   if (!lessonId || typeof accuracy !== 'number' || accuracy < 0 || accuracy > 1) {
     return NextResponse.json({ error: 'Invalid request body' }, { status: 400 })
