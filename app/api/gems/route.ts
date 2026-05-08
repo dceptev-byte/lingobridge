@@ -3,6 +3,7 @@ import { cookies } from 'next/headers'
 import { NextResponse } from 'next/server'
 import { prisma } from '@/lib/prisma'
 import { GEM_COSTS } from '@/lib/game/gems'
+import type { GemReason } from '@prisma/client'
 
 export async function POST(request: Request) {
   const cookieStore = cookies()
@@ -49,7 +50,7 @@ export async function POST(request: Request) {
       data: {
         userId: session.user.id,
         amount: -cost,
-        reason: item,
+        reason: item as GemReason,
       },
     })
   } catch {
