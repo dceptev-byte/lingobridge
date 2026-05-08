@@ -49,6 +49,7 @@ export function PronunciationExercise({ data, onComplete }: PronunciationExercis
 
       {/* Speak button */}
       <button
+        data-testid="speak-btn"
         onClick={handleSpeak}
         disabled={speakPhase !== 'idle'}
         className={`

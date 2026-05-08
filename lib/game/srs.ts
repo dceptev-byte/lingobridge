@@ -73,3 +73,30 @@ export function computeNextReview(
 export function initialSRSState(): SRSState {
   return { interval: 1, easeFactor: 2.5, repetitions: 0 }
 }
+
+// ─── Named-param wrapper for tests & external callers ────────────────────────
+
+export const SM2_MIN_EASE = MIN_EASE_FACTOR
+
+const STRING_RATING: Record<'again' | 'hard' | 'good' | 'easy', SRSRating> = {
+  again: 0,
+  hard: 1,
+  good: 2,
+  easy: 3,
+}
+
+export function calculateNextReview(params: {
+  rating: 'again' | 'hard' | 'good' | 'easy'
+  interval: number
+  easeFactor: number
+  repetitions: number
+  now: Date
+}): { interval: number; easeFactor: number; repetitions: number; nextReview: Date } {
+  const { state } = computeNextReview(
+    { interval: params.interval, easeFactor: params.easeFactor, repetitions: params.repetitions },
+    STRING_RATING[params.rating],
+  )
+  const nextReview = new Date(params.now.getTime())
+  nextReview.setDate(nextReview.getDate() + state.interval)
+  return { ...state, nextReview }
+}

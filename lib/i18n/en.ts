@@ -76,12 +76,25 @@ export const en = {
   // ── Units & Lessons ──────────────────────────────────
   unit1_vi_hi_title: 'Greetings & Numbers',
   unit1_hi_vi_title: 'Greetings & Numbers',
+  unit5_vi_hi_title: 'Advanced Topics',
   lesson_greetings_title: 'Greetings',
   lesson_numbers_title: 'Numbers',
   lesson_phrases_title: 'Basic Phrases',
+  lesson_advanced_title: 'Advanced',
+
+  // ── Languages ────────────────────────────────────────
+  lang_vi: 'Vietnamese',
+  lang_hi: 'Hindi',
+
+  // ── Paywall ──────────────────────────────────────────
+  paywall_title: 'Unlock Lingobridge Plus',
+  paywall_subtitle: 'Unlimited lessons and all units',
+  paywall_plan_annual: 'Annual — best value',
+  paywall_plan_monthly: 'Monthly',
 
   // ── Profile ──────────────────────────────────────────
   profile_title: 'Profile',
+  profile_learning: 'Learning',
   profile_stats: 'Your stats',
   profile_badges: 'Badges',
   profile_settings: 'Settings',

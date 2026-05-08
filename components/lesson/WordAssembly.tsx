@@ -108,6 +108,7 @@ export function WordAssembly({ data, onAnswerChange, phase, isCorrect }: WordAss
         {available.map((item) => (
           <button
             key={item.key}
+            data-testid="assemble-word"
             onClick={() => placeWord(item)}
             disabled={phase === 'feedback'}
             className="px-3 py-2 bg-white border-2 border-gray-200 rounded-xl font-body text-sm font-semibold text-gray-700 hover:border-indigo-300 hover:bg-indigo-50 transition-colors disabled:opacity-40"

@@ -3,6 +3,7 @@ import { createClient } from '../../../lib/supabase/server'
 import { prisma } from '../../../lib/prisma'
 import { getT } from '../../../lib/i18n'
 import { computeBadges } from '../../../lib/badges'
+import { XP_THRESHOLDS } from '../../../lib/game/xp'
 import { ProfileHeader } from '../../../components/profile/ProfileHeader'
 import { StatsGrid } from '../../../components/profile/StatsGrid'
 import { BadgeGrid } from '../../../components/profile/BadgeGrid'
@@ -63,6 +64,13 @@ export default async function ProfilePage() {
     { label: t('profile_level'),          value: levelLabel,          emoji: '🎯', colour: 'text-violet-500' },
   ]
 
+  // XP progress to next level
+  const nextLevelXp =
+    dbUser.totalXp < XP_THRESHOLDS.ELEMENTARY ? XP_THRESHOLDS.ELEMENTARY
+    : dbUser.totalXp < XP_THRESHOLDS.INTERMEDIATE ? XP_THRESHOLDS.INTERMEDIATE
+    : dbUser.totalXp < XP_THRESHOLDS.ADVANCED ? XP_THRESHOLDS.ADVANCED
+    : XP_THRESHOLDS.ADVANCED
+
   // Badges
   const badges = computeBadges({
     streakLongest: dbUser.streakLongest,
@@ -87,6 +95,8 @@ export default async function ProfilePage() {
           levelLabel={levelLabel}
           isPremium={dbUser.isPremium}
           memberSinceLabel={memberSinceLabel}
+          totalXp={dbUser.totalXp}
+          nextLevelXp={nextLevelXp}
         />
 
         {/* Stats */}
@@ -104,6 +114,38 @@ export default async function ProfilePage() {
             lockedLabel={t('profile_badge_locked')}
           />
         </section>
+
+        {/* Learning direction */}
+        <section className="flex flex-col gap-3">
+          <h2 className={SECTION}>{t('profile_learning')}</h2>
+          <div
+            data-testid="learning-direction"
+            className="bg-white rounded-2xl border border-slate-100 shadow-sm px-4 py-4 flex items-center gap-3"
+          >
+            <span className="text-2xl">{dbUser.nativeLang === 'VI' ? '🇻🇳' : '🇮🇳'}</span>
+            <span className="font-body text-sm font-medium text-slate-700">
+              {dbUser.nativeLang === 'VI'
+                ? `${t('lang_vi')} → ${t('lang_hi')}`
+                : `${t('lang_hi')} → ${t('lang_vi')}`}
+            </span>
+          </div>
+        </section>
+
+        {/* Premium upgrade banner */}
+        {!dbUser.isPremium && (
+          <div
+            data-testid="premium-banner"
+            className="bg-gradient-to-r from-indigo-600 to-violet-600 rounded-2xl px-5 py-5 flex items-center justify-between gap-4 shadow-lg"
+          >
+            <div>
+              <p className="font-display font-bold text-white text-base leading-tight">
+                {t('paywall_title')}
+              </p>
+              <p className="font-body text-white/80 text-xs mt-0.5">{t('paywall_subtitle')}</p>
+            </div>
+            <span className="text-3xl">⭐</span>
+          </div>
+        )}
 
         {/* Settings */}
         <section className="flex flex-col gap-3">

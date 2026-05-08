@@ -3,6 +3,7 @@ import { cookies } from 'next/headers'
 import { NextResponse } from 'next/server'
 import { prisma } from '@/lib/prisma'
 import { getWeekStart } from '@/lib/league/week'
+import { FREE_LIMITS } from '@/lib/game/limits'
 import type { Level } from '@prisma/client'
 
 const GEMS_PER_LESSON = 5
@@ -47,11 +48,26 @@ export async function POST(request: Request) {
   }
   const { lessonId, accuracy, xpEarned, heartsRemaining } = body
 
+  if (!lessonId || typeof accuracy !== 'number' || accuracy < 0 || accuracy > 1) {
+    return NextResponse.json({ error: 'Invalid request body' }, { status: 400 })
+  }
+
   const user = await prisma.user.findUnique({
     where: { id: session.user.id },
-    select: { totalXp: true, level: true },
+    select: { totalXp: true, level: true, isPremium: true },
   })
   if (!user) return NextResponse.json({ error: 'User not found' }, { status: 404 })
+
+  if (!user.isPremium) {
+    const todayStart = new Date()
+    todayStart.setHours(0, 0, 0, 0)
+    const todayCount = await prisma.lessonProgress.count({
+      where: { userId: session.user.id, completedAt: { gte: todayStart } },
+    })
+    if (todayCount >= FREE_LIMITS.lessonsPerDay) {
+      return NextResponse.json({ code: 'FREE_LIMIT_REACHED' }, { status: 403 })
+    }
+  }
 
   // Seed FlashcardReview rows for each exercise in this lesson (new cards only)
   const exercises = await prisma.exercise.findMany({

@@ -109,6 +109,7 @@ export default function LoginPage() {
               {t('auth_email_label')}
             </label>
             <input
+              data-testid="email-input"
               type="email"
               value={email}
               onChange={(e) => { setEmail(e.target.value); setError('') }}
@@ -117,9 +118,10 @@ export default function LoginPage() {
               autoComplete="email"
             />
             {error && (
-              <p className="font-body text-sm text-rose-500 mb-3">{error}</p>
+              <p data-testid="auth-error" className="font-body text-sm text-rose-500 mb-3">{error}</p>
             )}
             <button
+              data-testid="submit-btn"
               type="submit"
               disabled={loading}
               className="w-full bg-indigo-600 hover:bg-indigo-700 text-white font-body font-semibold rounded-xl py-3 px-4 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 transition-colors disabled:opacity-50 disabled:cursor-not-allowed"

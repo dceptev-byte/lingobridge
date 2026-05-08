@@ -86,6 +86,7 @@ export function SettingsSection({ initialDisplayName }: SettingsSectionProps) {
 
       {/* Sign out */}
       <button
+        data-testid="logout-btn"
         onClick={handleSignOut}
         className="w-full bg-white rounded-2xl border border-rose-100 shadow-sm px-4 py-4 text-sm font-semibold text-rose-500 hover:bg-rose-50 transition-colors text-left focus:outline-none focus:ring-2 focus:ring-rose-300"
       >

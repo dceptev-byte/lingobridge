@@ -41,7 +41,7 @@ export function LessonComplete({
   ]
 
   return (
-    <div className="flex flex-col items-center justify-center gap-8 py-10 px-4">
+    <div data-testid="lesson-complete" className="flex flex-col items-center justify-center gap-8 py-10 px-4">
       {/* Trophy */}
       <div className="text-center">
         <div className="text-7xl mb-4">🏆</div>
@@ -63,6 +63,7 @@ export function LessonComplete({
 
       {/* CTA */}
       <button
+        data-testid="lesson-complete-back-btn"
         onClick={onContinue}
         disabled={saving}
         className="w-full max-w-sm bg-emerald-500 hover:bg-emerald-400 disabled:opacity-60 disabled:cursor-not-allowed text-white font-display text-xl font-bold rounded-2xl py-4 shadow-lg shadow-emerald-200 transition-all hover:scale-105 active:scale-95 focus:outline-none focus:ring-2 focus:ring-emerald-300"

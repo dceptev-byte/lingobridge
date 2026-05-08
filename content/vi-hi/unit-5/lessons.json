@@ -1,0 +1,47 @@
+{
+  "unit": {
+    "slug": "vi-hi-unit-5",
+    "order": 5,
+    "langPair": "vi-hi",
+    "titleKey": "unit5_vi_hi_title",
+    "isPremium": true
+  },
+  "lessons": [
+    {
+      "slug": "vi-hi-u5-l1",
+      "order": 1,
+      "titleKey": "lesson_advanced_title",
+      "xpReward": 25,
+      "exercises": [
+        {
+          "order": 1,
+          "type": "MC",
+          "data": {
+            "char": "प्यार",
+            "charRoman": "pyaar",
+            "options": {
+              "vi": ["Tình yêu", "Hòa bình", "Hy vọng", "Hạnh phúc"],
+              "hi": ["प्रेम", "शांति", "आशा", "खुशी"],
+              "en": ["Love", "Peace", "Hope", "Happiness"]
+            },
+            "correctIndex": 0
+          }
+        },
+        {
+          "order": 2,
+          "type": "MC",
+          "data": {
+            "char": "शांति",
+            "charRoman": "shaanti",
+            "options": {
+              "vi": ["Tình yêu", "Hòa bình", "Hy vọng", "Hạnh phúc"],
+              "hi": ["प्रेम", "शांति", "आशा", "खुशी"],
+              "en": ["Love", "Peace", "Hope", "Happiness"]
+            },
+            "correctIndex": 1
+          }
+        }
+      ]
+    }
+  ]
+}

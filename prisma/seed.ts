@@ -33,6 +33,7 @@ interface ContentFile {
 
 const CONTENT_FILES = [
   path.join(__dirname, '../content/vi-hi/unit-1/lessons.json'),
+  path.join(__dirname, '../content/vi-hi/unit-5/lessons.json'),
   path.join(__dirname, '../content/hi-vi/unit-1/lessons.json'),
 ]
 

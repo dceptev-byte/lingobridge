@@ -77,13 +77,24 @@ export const vi: Record<TranslationKeys, string> = {
 
   // ── Units & Lessons ──────────────────────────────────
   unit1_vi_hi_title: 'Lời chào & Số đếm',
+  unit5_vi_hi_title: 'Chủ đề nâng cao',
   unit1_hi_vi_title: 'Lời chào & Số đếm',
   lesson_greetings_title: 'Lời chào',
+  lesson_advanced_title: 'Nâng cao',
   lesson_numbers_title: 'Số đếm',
   lesson_phrases_title: 'Câu cơ bản',
 
   // ── Profile ──────────────────────────────────────────
+  lang_vi: 'Tiếng Việt',
+  lang_hi: 'Tiếng Hindi',
+
+  paywall_title: 'Mở khóa Lingobridge Plus',
+  paywall_subtitle: 'Bài học không giới hạn và tất cả các đơn vị',
+  paywall_plan_annual: 'Hàng năm — tiết kiệm nhất',
+  paywall_plan_monthly: 'Hàng tháng',
+
   profile_title: 'Hồ sơ',
+  profile_learning: 'Học tập',
   profile_stats: 'Thống kê của bạn',
   profile_badges: 'Huy hiệu',
   profile_settings: 'Cài đặt',

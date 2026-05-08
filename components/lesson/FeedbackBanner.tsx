@@ -12,8 +12,9 @@ export function FeedbackBanner({ isCorrect, onContinue }: FeedbackBannerProps) {
 
   return (
     <div
+      data-testid="feedback-banner"
       className={`rounded-2xl px-5 py-5 flex items-center justify-between gap-4 shadow-sm
-        ${isCorrect ? 'bg-emerald-50 border-2 border-emerald-200' : 'bg-rose-50 border-2 border-rose-200'}`}
+        ${isCorrect ? 'correct bg-emerald-50 border-2 border-emerald-200' : 'wrong bg-rose-50 border-2 border-rose-200'}`}
     >
       <div className="flex items-center gap-3">
         <div
@@ -39,6 +40,7 @@ export function FeedbackBanner({ isCorrect, onContinue }: FeedbackBannerProps) {
       </div>
 
       <button
+        data-testid="btn-continue"
         onClick={onContinue}
         className={`px-6 py-2.5 rounded-xl font-display font-bold text-sm text-white transition-all
           hover:scale-105 active:scale-95 focus:outline-none focus:ring-2 focus:ring-offset-1

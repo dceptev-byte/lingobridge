@@ -8,6 +8,8 @@ interface ProfileHeaderProps {
   levelLabel: string
   isPremium: boolean
   memberSinceLabel: string
+  totalXp: number
+  nextLevelXp: number
 }
 
 const LEVEL_COLOUR: Record<string, string> = {
@@ -25,9 +27,12 @@ export function ProfileHeader({
   levelLabel,
   isPremium,
   memberSinceLabel,
+  totalXp,
+  nextLevelXp,
 }: ProfileHeaderProps) {
   const initials = (displayName ?? email).charAt(0).toUpperCase()
   const colourClass = LEVEL_COLOUR[level.toLowerCase()] ?? LEVEL_COLOUR.beginner
+  const xpPct = nextLevelXp > 0 ? Math.min(100, Math.round((totalXp / nextLevelXp) * 100)) : 100
 
   return (
     <div className="flex flex-col items-center gap-3 py-6">
@@ -47,7 +52,7 @@ export function ProfileHeader({
 
       {/* Name + email */}
       <div className="text-center">
-        <p className="text-lg font-bold text-slate-800">{displayName ?? email}</p>
+        <p data-testid="profile-name" className="text-lg font-bold text-slate-800">{displayName ?? email}</p>
         {displayName && <p className="text-xs text-slate-400">{email}</p>}
       </div>
 
@@ -57,6 +62,17 @@ export function ProfileHeader({
           {levelLabel}
         </span>
         <span className="text-xs text-slate-400">{memberSinceLabel}</span>
+      </div>
+
+      {/* XP progress bar */}
+      <div data-testid="xp-bar" className="w-full max-w-xs">
+        <div className="h-2 bg-slate-100 rounded-full overflow-hidden">
+          <div
+            className="h-full bg-indigo-400 rounded-full transition-all duration-500"
+            style={{ width: `${xpPct}%` }}
+          />
+        </div>
+        <p className="text-[11px] text-slate-400 text-center mt-1">{totalXp} / {nextLevelXp} XP</p>
       </div>
     </div>
   )

@@ -39,6 +39,7 @@ export function FlashCard({ card, nativeLang, onRate }: FlashCardProps) {
     <div className="flex flex-col items-center gap-6 w-full max-w-sm mx-auto">
       {/* 3D Flip Card */}
       <div
+        data-testid="fc-scene"
         className="w-full cursor-pointer select-none"
         style={{ perspective: '1200px' }}
         onClick={handleFlip}
@@ -55,10 +56,11 @@ export function FlashCard({ card, nativeLang, onRate }: FlashCardProps) {
         >
           {/* Front */}
           <div
+            data-testid="fc-front"
             className="absolute inset-0 rounded-2xl bg-white border border-slate-200 shadow-lg flex flex-col items-center justify-center p-6"
             style={{ backfaceVisibility: 'hidden' }}
           >
-            <p className="text-5xl font-bold text-slate-800 text-center leading-tight font-display">
+            <p data-testid="fc-front-word" className="text-5xl font-bold text-slate-800 text-center leading-tight font-display">
               {front.char}
             </p>
             {front.roman && (
@@ -71,6 +73,7 @@ export function FlashCard({ card, nativeLang, onRate }: FlashCardProps) {
 
           {/* Back */}
           <div
+            data-testid="fc-back"
             className="absolute inset-0 rounded-2xl bg-indigo-600 shadow-lg flex flex-col items-center justify-center p-6"
             style={{ backfaceVisibility: 'hidden', transform: 'rotateY(180deg)' }}
           >
@@ -93,8 +96,10 @@ export function FlashCard({ card, nativeLang, onRate }: FlashCardProps) {
         {ratingButtons.map(({ label, rating, color }) => (
           <button
             key={rating}
+            data-testid={rating === 2 ? 'fc-btn-good' : rating === 3 ? 'fc-btn-easy' : undefined}
             onClick={() => handleRate(rating)}
-            className={`${color} text-white text-sm font-semibold py-3 rounded-xl transition-colors focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-400`}
+            disabled={!flipped}
+            className={`${color} text-white text-sm font-semibold py-3 rounded-xl transition-colors focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-400 disabled:opacity-50 disabled:cursor-not-allowed`}
           >
             {label}
           </button>

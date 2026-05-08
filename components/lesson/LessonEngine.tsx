@@ -189,6 +189,7 @@ export function LessonEngine({ lesson }: { lesson: SerializedLesson }) {
       {/* Header: back + progress bar + hearts */}
       <div className="flex items-center gap-3">
         <button
+          data-testid="lesson-close"
           onClick={() => router.push('/home')}
           className="text-gray-400 hover:text-gray-600 transition-colors focus:outline-none"
           aria-label="back"
@@ -198,21 +199,23 @@ export function LessonEngine({ lesson }: { lesson: SerializedLesson }) {
           </svg>
         </button>
 
-        <div className="flex-1 h-3 bg-gray-100 rounded-full overflow-hidden">
+        <div data-testid="lesson-progress" className="flex-1 h-3 bg-gray-100 rounded-full overflow-hidden">
           <div
+            data-testid="lesson-progress-fill"
             className="h-full bg-indigo-400 rounded-full transition-all duration-500"
             style={{ width: `${progress}%` }}
           />
         </div>
 
         {/* Hearts */}
-        <div className="flex gap-1">
+        <div data-testid="hearts" className="flex gap-1">
           {Array.from({ length: 3 }).map((_, i) => (
             <svg
               key={i}
+              data-testid="heart"
               viewBox="0 0 24 24"
               fill="currentColor"
-              className={`w-5 h-5 transition-colors ${i < hearts ? 'text-rose-500' : 'text-gray-200'}`}
+              className={`w-5 h-5 transition-colors ${i < hearts ? 'text-rose-500' : 'lost text-gray-200'}`}
             >
               <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.27 2 8.5 2 5.41 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.08C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.41 22 8.5c0 3.77-3.4 6.86-8.55 11.53L12 21.35z" />
             </svg>
@@ -250,6 +253,7 @@ export function LessonEngine({ lesson }: { lesson: SerializedLesson }) {
       {/* CHECK button — hidden for SPEAK (auto-submits) */}
       {phase === 'answering' && exercise.type !== 'SPEAK' && (
         <button
+          data-testid="btn-check"
           onClick={handleCheck}
           disabled={selectedAnswer === null}
           className="w-full bg-indigo-600 hover:bg-indigo-500 disabled:bg-gray-100 disabled:text-gray-300 text-white disabled:text-gray-300 font-display font-bold text-lg rounded-2xl py-4 transition-all hover:scale-[1.02] active:scale-95 focus:outline-none focus:ring-2 focus:ring-indigo-300 disabled:cursor-not-allowed"

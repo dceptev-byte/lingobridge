@@ -2,6 +2,7 @@
 
 import Link from 'next/link'
 import { useI18nStore } from '../../store/i18nStore'
+import { useModalStore } from '../../store/modalStore'
 
 export type NodeState = 'completed' | 'current' | 'locked'
 
@@ -9,10 +10,12 @@ interface SkillNodeProps {
   lessonId: string
   order: number
   state: NodeState
+  isPremium?: boolean
 }
 
-export function SkillNode({ lessonId, order, state }: SkillNodeProps) {
+export function SkillNode({ lessonId, order, state, isPremium = false }: SkillNodeProps) {
   const { t } = useI18nStore()
+  const openPaywall = useModalStore((s) => s.openPaywall)
 
   const nodeStyles: Record<NodeState, string> = {
     completed:
@@ -44,6 +47,7 @@ export function SkillNode({ lessonId, order, state }: SkillNodeProps) {
   const node = (
     <div className="flex flex-col items-center gap-2">
       <div
+        data-testid={state === 'current' ? 'skill-node-active' : (state === 'locked' && isPremium) ? 'skill-node-premium' : undefined}
         className={`w-14 h-14 rounded-full border-2 flex items-center justify-center transition-all ${nodeStyles[state]}`}
       >
         {inner[state]}
@@ -56,7 +60,16 @@ export function SkillNode({ lessonId, order, state }: SkillNodeProps) {
     </div>
   )
 
-  if (state === 'locked') return node
+  if (state === 'locked') {
+    if (isPremium) {
+      return (
+        <button onClick={openPaywall} className="focus:outline-none">
+          {node}
+        </button>
+      )
+    }
+    return node
+  }
 
   return (
     <Link href={`/lesson/${lessonId}`} className="focus:outline-none group">

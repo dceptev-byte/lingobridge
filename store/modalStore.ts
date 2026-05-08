@@ -15,6 +15,9 @@ interface ModalStore {
   // Level-up celebration
   levelUp: AppLevel | null
 
+  // Paywall
+  paywallOpen: boolean
+
   setStreakMilestone: (streak: number, gems: number) => void
   clearStreakMilestone: () => void
 
@@ -23,6 +26,9 @@ interface ModalStore {
 
   setLevelUp: (level: AppLevel) => void
   clearLevelUp: () => void
+
+  openPaywall: () => void
+  closePaywall: () => void
 }
 
 export const useModalStore = create<ModalStore>((set) => ({
@@ -30,6 +36,7 @@ export const useModalStore = create<ModalStore>((set) => ({
   milestoneGems: 0,
   brokenStreak: null,
   levelUp: null,
+  paywallOpen: false,
 
   setStreakMilestone: (streak, gems) =>
     set({ streakMilestone: streak, milestoneGems: gems }),
@@ -41,4 +48,7 @@ export const useModalStore = create<ModalStore>((set) => ({
 
   setLevelUp: (level) => set({ levelUp: level }),
   clearLevelUp: () => set({ levelUp: null }),
+
+  openPaywall: () => set({ paywallOpen: true }),
+  closePaywall: () => set({ paywallOpen: false }),
 }))

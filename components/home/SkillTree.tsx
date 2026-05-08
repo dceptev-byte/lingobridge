@@ -66,7 +66,7 @@ export function SkillTree({ units }: SkillTreeProps) {
         const allDone = unit.lessons.every((l) => l.completed)
 
         return (
-          <div key={unit.id}>
+          <div key={unit.id} data-testid={unit.isPremium ? 'unit-premium' : undefined}>
             {/* Unit header */}
             <div className={`bg-gradient-to-r ${colour} rounded-2xl px-5 py-4 mb-5 shadow-sm`}>
               <div className="flex items-center justify-between">
@@ -108,6 +108,7 @@ export function SkillTree({ units }: SkillTreeProps) {
                       lessonId={lesson.id}
                       order={lesson.order}
                       state={state}
+                      isPremium={unit.isPremium}
                     />
                   )
                 })}

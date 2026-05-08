@@ -4,6 +4,7 @@ import { prisma } from '../../../lib/prisma'
 import { DailyGoalBar } from '../../../components/home/DailyGoalBar'
 import { StatsRow } from '../../../components/home/StatsRow'
 import { SkillTree } from '../../../components/home/SkillTree'
+import { PaywallModal } from '../../../components/home/PaywallModal'
 import type { SerializedUnit } from '../../../components/home/SkillTree'
 
 const DAILY_GOAL_XP = 50
@@ -74,6 +75,7 @@ export default async function HomePage() {
       <DailyGoalBar todayXp={todayXp} goalXp={DAILY_GOAL_XP} />
       <StatsRow />
       <SkillTree units={serializedUnits} />
+      <PaywallModal />
     </div>
   )
 }

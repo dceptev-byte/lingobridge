@@ -77,13 +77,24 @@ export const hi: Record<TranslationKeys, string> = {
 
   // ── Units & Lessons ──────────────────────────────────
   unit1_vi_hi_title: 'अभिवादन और संख्याएँ',
+  unit5_vi_hi_title: 'उन्नत विषय',
   unit1_hi_vi_title: 'अभिवादन और संख्याएँ',
   lesson_greetings_title: 'अभिवादन',
+  lesson_advanced_title: 'उन्नत',
   lesson_numbers_title: 'संख्याएँ',
   lesson_phrases_title: 'मूल वाक्यांश',
 
   // ── Profile ──────────────────────────────────────────
+  lang_vi: 'वियतनामी',
+  lang_hi: 'हिंदी',
+
+  paywall_title: 'Lingobridge Plus अनलॉक करें',
+  paywall_subtitle: 'असीमित पाठ और सभी इकाइयाँ',
+  paywall_plan_annual: 'वार्षिक — सर्वोत्तम मूल्य',
+  paywall_plan_monthly: 'मासिक',
+
   profile_title: 'प्रोफ़ाइल',
+  profile_learning: 'सीखना',
   profile_stats: 'आपके आँकड़े',
   profile_badges: 'बैज',
   profile_settings: 'सेटिंग्स',

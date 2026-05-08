@@ -131,6 +131,7 @@ export default function PlacementPage() {
           </div>
 
           <button
+            data-testid="pt-continue-btn"
             onClick={handleStartLearning}
             disabled={saving}
             className="w-full bg-emerald-500 hover:bg-emerald-400 disabled:opacity-60 disabled:cursor-not-allowed text-white font-display text-xl font-bold rounded-2xl py-4 px-8 shadow-lg shadow-emerald-900/30 transition-all hover:scale-105 active:scale-95 focus:outline-none focus:ring-2 focus:ring-emerald-300 focus:ring-offset-2 focus:ring-offset-indigo-600"
@@ -156,8 +157,9 @@ export default function PlacementPage() {
             {t('placement_question')} {current + 1} {t('placement_of')} {TOTAL}
           </span>
         </div>
-        <div className="h-2 bg-white/20 rounded-full overflow-hidden">
+        <div data-testid="pt-progress" className="h-2 bg-white/20 rounded-full overflow-hidden">
           <div
+            data-testid="pt-fill"
             className="h-full bg-emerald-400 rounded-full transition-all duration-500"
             style={{ width: `${progress}%` }}
           />
@@ -176,7 +178,7 @@ export default function PlacementPage() {
         </div>
 
         {/* Character card */}
-        <div className="bg-white rounded-2xl w-full py-8 px-6 text-center shadow-xl">
+        <div data-testid="pt-question" className="bg-white rounded-2xl w-full py-8 px-6 text-center shadow-xl">
           <p className="font-display text-5xl font-bold text-indigo-800 leading-tight mb-3">
             {q.char}
           </p>
@@ -190,17 +192,18 @@ export default function PlacementPage() {
               'bg-white/10 border-white/20 text-white hover:bg-white/20 hover:border-white/40'
             if (selectedIndex === i) {
               if (answerState === 'correct') {
-                style = 'bg-emerald-500 border-emerald-400 text-white scale-105'
+                style = 'correct bg-emerald-500 border-emerald-400 text-white scale-105'
               } else if (answerState === 'wrong') {
                 style = 'bg-rose-500 border-rose-400 text-white scale-95'
               }
             } else if (answerState !== 'idle' && i === q.correctIndex) {
-              style = 'bg-emerald-500 border-emerald-400 text-white'
+              style = 'correct bg-emerald-500 border-emerald-400 text-white'
             }
 
             return (
               <button
                 key={i}
+                data-testid="pt-option"
                 onClick={() => handleAnswer(i)}
                 disabled={answerState !== 'idle'}
                 className={`

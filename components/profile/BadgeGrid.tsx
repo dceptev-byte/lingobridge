@@ -9,7 +9,7 @@ interface BadgeGridProps {
 
 export function BadgeGrid({ badges, lang, lockedLabel }: BadgeGridProps) {
   return (
-    <div className="grid grid-cols-3 gap-3">
+    <div data-testid="badges-grid" className="grid grid-cols-3 gap-3">
       {badges.map((badge) => {
         const content = BADGE_CONTENT[badge.id]
         const title = content?.title[lang] ?? badge.id

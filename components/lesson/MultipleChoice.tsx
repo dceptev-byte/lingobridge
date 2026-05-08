@@ -61,6 +61,8 @@ export function MultipleChoice({ data, selectedIndex, onSelect, phase, isCorrect
         {options.map((option, i) => (
           <button
             key={i}
+            data-testid="mc-option"
+            data-correct={i === data.correctIndex ? 'true' : 'false'}
             onClick={() => phase === 'answering' && onSelect(i)}
             disabled={phase === 'feedback'}
             className={getButtonStyle(i)}

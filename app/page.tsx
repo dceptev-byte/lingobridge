@@ -27,6 +27,7 @@ export default function WelcomePage() {
   const { lang, setLang, t } = useI18nStore()
   const [starting, setStarting] = useState(false)
   const [showDev, setShowDev] = useState(false)
+  const [hasSelected, setHasSelected] = useState(false)
   const router = useRouter()
   const supabase = createClient()
 
@@ -63,7 +64,8 @@ export default function WelcomePage() {
           {LANGUAGES.map((l) => (
             <button
               key={l.code}
-              onClick={() => setLang(l.code)}
+              data-testid={`lang-card-${l.code}`}
+              onClick={() => { setLang(l.code); setHasSelected(true) }}
               className={`
                 flex flex-col items-center gap-2 p-5 rounded-2xl border-2 transition-all
                 focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-indigo-600
@@ -87,7 +89,8 @@ export default function WelcomePage() {
         <div className="text-center mt-3">
           {showDev ? (
             <button
-              onClick={() => setLang('en')}
+              data-testid="lang-card-en"
+              onClick={() => { setLang('en'); setHasSelected(true) }}
               className={`
                 inline-flex items-center gap-2 px-4 py-2 rounded-xl border text-sm font-body transition-all
                 focus:outline-none focus:ring-2 focus:ring-white
@@ -100,6 +103,7 @@ export default function WelcomePage() {
             </button>
           ) : (
             <button
+              data-testid="lang-card-en"
               onClick={() => setShowDev(true)}
               className="font-body text-xs text-indigo-300 hover:text-indigo-100 transition-colors"
             >
@@ -112,8 +116,9 @@ export default function WelcomePage() {
       {/* CTA */}
       <div className="w-full max-w-sm mt-6">
         <button
+          data-testid="start-btn"
           onClick={handleStart}
-          disabled={starting}
+          disabled={!hasSelected || starting}
           className="w-full bg-emerald-500 hover:bg-emerald-400 disabled:opacity-60 disabled:cursor-not-allowed text-white font-display text-xl font-bold rounded-2xl py-4 px-8 shadow-lg shadow-emerald-900/30 transition-all hover:scale-105 active:scale-95 focus:outline-none focus:ring-2 focus:ring-emerald-300 focus:ring-offset-2 focus:ring-offset-indigo-600"
         >
           {starting ? t('loading') : t('btn_start')}
